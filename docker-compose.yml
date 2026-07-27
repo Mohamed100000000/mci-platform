@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres:16
+    container_name: azda_mci_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: azda_user
+      POSTGRES_PASSWORD: azda_pass
+      POSTGRES_DB: azda_mci
+    ports:
+      - "5432:5432"
+    volumes:
+      - azda_mci_pgdata:/var/lib/postgresql/data
+
+  api:
+    build: .
+    container_name: azda_mci_api
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://azda_user:azda_pass@db:5432/azda_mci
+      SECRET_KEY: CHANGE_ME_IN_PRODUCTION
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+
+volumes:
+  azda_mci_pgdata:
