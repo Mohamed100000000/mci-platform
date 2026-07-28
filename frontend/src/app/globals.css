@@ -1,0 +1,158 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ==========================================================================
+   MCI Platform Design System
+   Color palette extracted directly from the official lighthouse logo:
+     - Deep navy background:  #02224C  -> brand-900
+     - Lighthouse beam blue:  #6AABE9  -> brand-300 (primary accent)
+     - Lighthouse white:      #FFFFFF
+   ========================================================================== */
+
+:root {
+  --radius: 0.75rem;
+
+  --brand-50: #eff7fe;
+  --brand-100: #d2e6fa;
+  --brand-200: #9dc7f0;
+  --brand-300: #6aabe9;
+  --brand-400: #3a72be;
+  --brand-500: #2361a8;
+  --brand-600: #154482;
+  --brand-700: #0f3468;
+  --brand-800: #0a2750;
+  --brand-900: #071b3d;
+  --brand-950: #04102a;
+
+  --background: #f6f9fd;
+  --foreground: #0a1b33;
+  --card: #ffffff;
+  --card-foreground: #0a1b33;
+  --popover: #ffffff;
+  --popover-foreground: #0a1b33;
+  --primary: var(--brand-700);
+  --primary-foreground: #ffffff;
+  --secondary: #eef3fa;
+  --secondary-foreground: var(--brand-800);
+  --accent: var(--brand-300);
+  --accent-foreground: var(--brand-900);
+  --muted: #eef2f8;
+  --muted-foreground: #5b6b85;
+  --border: #e2e8f2;
+  --input: #e2e8f2;
+  --ring: var(--brand-400);
+  --success: #16a34a;
+  --success-foreground: #ffffff;
+  --warning: #d97706;
+  --warning-foreground: #ffffff;
+  --danger: #dc2626;
+  --danger-foreground: #ffffff;
+  --sidebar: var(--brand-900);
+  --sidebar-foreground: #e7eefb;
+  --sidebar-muted: #93a5c4;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-accent: rgba(255, 255, 255, 0.06);
+}
+
+.dark {
+  --background: #051730;
+  --foreground: #eaf2fc;
+  --card: #0a2750;
+  --card-foreground: #eaf2fc;
+  --popover: #0a2750;
+  --popover-foreground: #eaf2fc;
+  --primary: var(--brand-300);
+  --primary-foreground: var(--brand-950);
+  --secondary: #0f3468;
+  --secondary-foreground: #eaf2fc;
+  --accent: var(--brand-300);
+  --accent-foreground: var(--brand-950);
+  --muted: #0f3468;
+  --muted-foreground: #93a5c4;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: var(--brand-300);
+  --success: #22c55e;
+  --success-foreground: #04150a;
+  --warning: #f59e0b;
+  --warning-foreground: #1a1102;
+  --danger: #ef4444;
+  --danger-foreground: #1a0505;
+  --sidebar: #04102a;
+  --sidebar-foreground: #e7eefb;
+  --sidebar-muted: #7d92b8;
+  --sidebar-border: rgba(255, 255, 255, 0.06);
+  --sidebar-accent: rgba(255, 255, 255, 0.05);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-danger: var(--danger);
+  --color-danger-foreground: var(--danger-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-muted: var(--sidebar-muted);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent: var(--sidebar-accent);
+
+  --color-brand-50: var(--brand-50);
+  --color-brand-100: var(--brand-100);
+  --color-brand-200: var(--brand-200);
+  --color-brand-300: var(--brand-300);
+  --color-brand-400: var(--brand-400);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-700: var(--brand-700);
+  --color-brand-800: var(--brand-800);
+  --color-brand-900: var(--brand-900);
+  --color-brand-950: var(--brand-950);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-feature-settings: "cv11", "ss01";
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--brand-300);
+  color: var(--brand-950);
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-muted-foreground); opacity: 0.3; border-radius: 8px; }
